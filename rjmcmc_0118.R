@@ -208,7 +208,7 @@ for(i in 2:iter){
       rest <- temp$rest
       n_active <- temp$n_active
       n_rest <- temp$n_rest
-      acc_b_ar[i] <- accept
+      acc_b_ar[i] <- temp$accept
     }
 
 
@@ -221,7 +221,7 @@ for(i in 2:iter){
       rest <- temp$rest
       n_active <- temp$n_active
       n_rest <- temp$n_rest
-      acc_b_ra[i] <- accept
+      acc_b_ra[i] <- temp$accept
       
     }
 
@@ -237,7 +237,7 @@ for(i in 2:iter){
       rest <- temp$rest
       n_active <- temp$n_active
       n_rest <- temp$n_rest
-      acc_d_ar[i] <- accept
+      acc_d_ar[i] <- temp$accept
       
     }
     
@@ -250,7 +250,7 @@ for(i in 2:iter){
       rest <- temp$rest
       n_active <- temp$n_active
       n_rest <- temp$n_rest
-      acc_d_ra[i] <- accept
+      acc_d_ra[i] <- temp$accept
       
     }
     
