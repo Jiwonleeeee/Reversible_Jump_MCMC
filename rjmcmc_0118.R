@@ -7,7 +7,7 @@ library(truncnorm)
 
 set.seed(0202)
 dataset <- read.csv("/Users/wonny/Downloads/actigraph_csv.csv")
-source('/Users/wonny/Documents/Reversible_Jump_MCMC/rjmcmc_ftn_0107.R')
+source('/Users/wonny/Documents/Reversible_Jump_MCMC/rjmcmc_ftn_0118.R')
 
 subject1 <- subset(dataset, Index==1)
 data <- (subject1$axis1 + subject1$axis2 + subject1$axis3)/3
