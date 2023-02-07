@@ -36,14 +36,9 @@ L <- t[length(t)]+0.5
 
 ################################ initial values ##############################################
 
-
-initial_length <- 30 # initial_length/2 = # of active = # of rest for now
-initial_cuts <- seq(0.5,L, by =1)
-initial_cuts <- sample(initial_cuts[2:(length(initial_cuts)-1)], initial_length-2)
-initial_cuts <- c(0.5, initial_cuts[order(initial_cuts)], L)
-
-active <- initial_cuts[(1:length(initial_cuts))%%2==1]
-rest <- initial_cuts[(1:length(initial_cuts))%%2==0]
+Init <- initial_position(y, 50)
+active <- Init$active
+rest <- Init$rest
 
 # active[1] < rest[1]  -> active,rest / else -> rest,active
 position <- c(rbind(active,rest))

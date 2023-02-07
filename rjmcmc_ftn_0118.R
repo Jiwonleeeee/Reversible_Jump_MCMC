@@ -1,3 +1,67 @@
+initial_position <- function(y_input, cutoff){
+  
+  Signs <- sign(y_input - cutoff)
+  Num  <- length(y_input)
+  changePoints <- Indi <- numeric(Num)
+  
+  for(i in 2:Num){
+    if(Signs[i]!=Signs[i-1]){
+      changePoints[i] <- i
+      
+      Indi[i] <- ifelse(Signs[i] > Signs[i-1], "A" , "R")
+      
+    }
+  }
+  
+  CPs <- changePoints[changePoints!=0]  
+  Indi <- Indi[Indi!="0"]
+  LthCP <- length(CPs)
+  
+  if(LthCP%%2 == 0){
+    
+    if(Indi[1]=="A"){
+      active <- CPs[seq(1, LthCP-1, by =2)]
+      rest <- CPs[seq(2, LthCP, by=2)]
+      
+      active <- active[-1]
+      if(Indi[length(Indi)]=="R"){
+        rest <- rest[-length(rest)]
+      }
+    }else{
+      rest <- CPs[seq(1, LthCP-1, by =2)]
+      active <- CPs[seq(2, LthCP, by=2)]
+      if(Indi[length(Indi)]=="R"){
+        rest <- rest[-length(rest)]
+      }
+    }
+    
+  }else{
+    
+    if(Indi[1]=="A"){
+      active <- CPs[seq(1, LthCP, by =2)]
+      rest <- CPs[seq(2, LthCP-1, by=2)]
+      
+      active <- active[-1]
+      if(Indi[length(Indi)]=="R"){
+        rest <- rest[-length(rest)]
+      }
+      
+    }else{
+      rest <- CPs[seq(1, LthCP, by =2)]
+      active <- CPs[seq(2, LthCP-1, by=2)]
+      if(Indi[length(Indi)]=="R"){
+        rest <- rest[-length(rest)]
+      }
+    }
+    
+  }
+  
+  active <- c(0.5, active-0.5)
+  rest <- c(rest-0.5, L)
+  
+  return(list(active=active, rest=rest))
+  
+}
 
 log_zip_lkh <- function(y_input, pi_input, lambda_input){
   y_0 <- y_input[y_input==0]
