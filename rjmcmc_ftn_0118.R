@@ -76,7 +76,7 @@ log_zip_lkh <- function(y_input, pi_input, lambda_input){
 
 
 kernel_ftn <- function(t_input, l_input, g_input){
-  K <- exp(-(outer(t_input,t_input,FUN = "-")^2)/l_input)+g_input*diag(length(t_input))
+  K <- exp(-abs(outer(t_input,t_input,FUN = "-"))/l_input)+g_input*diag(length(t_input))
   return(K)
 } # covariance matrix = sigma^2 * kernel_ftn(t,l,g)
 
